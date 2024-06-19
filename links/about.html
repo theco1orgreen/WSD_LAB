@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+  <title>Account Info</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    .container {
+      margin-top: 50px;
+    }
+    
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../new.html">HOME</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="account.html">ACCOUNT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="upload.html">UPLOAD</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="policy.html">POLICY</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button id="searchButton" class="btn btn-outline-light my-2 my-sm-0" type="button">SEARCH</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>ABOUT</h1>
+    <h2>COLORING VOYAGE</h2><br><br>
+    <p>참여형 온라인 사진전인 ‘coloring voyage’는 빨강, 주황, 노랑,
+        초록, 파랑, 보라, 핑크 7가지 빛깔의 사진들에 담긴 여정의 흔
+        적을 함께 나누자는 취지에서 시작되었다.
+        주최자인 ‘유가인’ 양의 사진들을 시작으로 회원들이 업로드한
+        다양한 사진들을 온라인 상으로 마음껏 감상할 수 있다.<br>
+        The participatory online photo exhibition 'Coloring Voyage'
+        began with the intention of sharing the traces of the
+        journey in seven colors of red, orange, yellow, green, blue,
+        purple, and pink.
+        Starting with the photos of the director, Ga-In Yoo, you can
+        enjoy various photos uploaded by members online.</p>
+  
+  </div>
+
+<script>
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
+
+searchButton.addEventListener('click', () => {
+  const searchTerm = searchInput.value.trim().toLowerCase();
+
+  switch (searchTerm) {
+    case 'red':
+    case 'RED':
+      window.location.href = 'red.html';
+      break;
+    case 'orange':
+    case 'ORANGE':
+      window.location.href = 'orange.html';
+      break;
+    case 'yellow':
+    case 'YELLOW':
+      window.location.href = 'yellow.html';
+      break;
+    case 'green':
+    case 'GREEN':
+      window.location.href = 'green.html';
+      break;
+    case 'blue':
+    case 'BLUE':
+      window.location.href = 'blue.html';
+      break;
+    case 'purple':
+    case 'PURPLE':
+      window.location.href = 'purple.html';
+      break;
+    case 'pink':
+    case 'PINK':
+      window.location.href = 'pink.html';
+      break;
+    default:
+      alert('Invalid search term');
+      break;
+  }
+});
+
+    
+</script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

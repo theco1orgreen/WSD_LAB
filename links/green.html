@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 3rem;
+            color: green;
+            font-weight: bold;
+        }
+        .subtitle {
+            font-size: 1.5rem;
+            color: green;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .content img {
+            width: 100%;
+            height: auto;
+        }
+        .map {
+            height: 400px;
+            width: 100%;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .image-container {
+            position: relative;
+            max-width: 100%;
+            max-height: 900px;
+            overflow: hidden;
+        }
+        .image-container img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../new.html">HOME</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="account.html">ACCOUNT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">ABOUT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="upload.html">UPLOAD</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="policy.html">POLICY</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+              <button class="btn btn-outline-light my-2 my-sm-0" type="button" id="searchButton">SEARCH</button>
+            </form>
+          </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="red-section" class="title"><u>GREEN</u></div>
+                    <div class="subtitle">THE COLOR OF HARMONY AND HEALTH.</div>
+                </div>
+                <div class="col-md-6">
+                    <div class="image-container">
+                        <img src="green_main.jpg" alt="Red Telephone Box">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="gallery">
+            
+            <div class="row content">
+                <img src="green_1.jpg">
+                <img src="green_2.jpg">
+            </div>
+        </div>
+
+        <div class="section">
+            <div id="map" class="map"></div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.title').addEventListener('click', function() {
+            document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+        });
+
+
+      
+
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
+
+searchButton.addEventListener('click', () => {
+  const searchTerm = searchInput.value.trim().toLowerCase();
+
+  switch (searchTerm) {
+    case 'red':
+    case 'RED':
+      window.location.href = 'red.html';
+      break;
+    case 'orange':
+    case 'ORANGE':
+      window.location.href = 'orange.html';
+      break;
+    case 'yellow':
+    case 'YELLOW':
+      window.location.href = 'yellow.html';
+      break;
+    case 'green':
+    case 'GREEN':
+      window.location.href = 'green.html';
+      break;
+    case 'blue':
+    case 'BLUE':
+      window.location.href = 'blue.html';
+      break;
+    case 'purple':
+    case 'PURPLE':
+      window.location.href = 'purple.html';
+      break;
+    case 'pink':
+    case 'PINK':
+      window.location.href = 'pink.html';
+      break;
+    default:
+      alert('Invalid search term');
+      break;
+  }
+});
+
+   
+    </script>
+   
+</body>
+</html>

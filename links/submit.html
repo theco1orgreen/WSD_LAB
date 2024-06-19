@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose a Color</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .color-box {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #ccc;
+      margin: 10px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../new.html">HOME</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="account.html">ACCOUNT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="upload.html">UPLOAD</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="policy.html">POLICY</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button id="searchButton" class="btn btn-outline-light my-2 my-sm-0" type="button">SEARCH</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="container mt-5">
+    <h2>Choose a Color</h2>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="color" id="red" value="red">
+        <label class="form-check-label" for="red">
+          <div class="color-box" style="background-color: red;"></div>
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="color" id="orange" value="orange">
+        <label class="form-check-label" for="orange">
+          <div class="color-box" style="background-color: orange;"></div>
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="color" id="yellow" value="yellow">
+        <label class="form-check-label" for="yellow">
+          <div class="color-box" style="background-color: yellow;"></div>
+        </label>
+      </div>
+      <div class="form -check form-check-inline">
+        <input class="form-check-input" type="radio" name="color" id="green" value="green">
+        <label class="form-check-label" for="green">
+          <div class="color-box" style="background-color: green;"></div>
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="color" id="blue" value="blue">
+        <label class="form-check-label" for="blue">
+          <div class="color-box" style="background-color: blue;"></div>
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="color" id="purple" value="purple">
+        <label class="form-check-label" for="purple">
+          <div class="color-box" style="background-color: purple;"></div>
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="color" id="pink" value="pink">
+        <label class="form-check-label" for="pink">
+          <div class="color-box" style="background-color: pink;"></div>
+        </label>
+      </div>
+  
+
+    <h2 class="mt-4">Submit Your Photo</h2>
+    <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="color" value="">
+      <div class="custom-file mb-3">
+        <input type="file" class="custom-file-input" id="photo" name="photo" accept="image/*">
+        <label class="custom-file-label" for="photo">Choose file</label>
+      </div>
+      <div class="mb-3">
+        <img id="preview" src="#" alt="Preview" class="img-fluid" style="max-width: 300px; display: none;">
+      </div>
+      <button type="submit" class="btn btn-secondary">Upload</button>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    
+    $('#photo').on('change', function() {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function() {
+          $('#preview').attr('src', reader.result).show();
+        }
+        reader.readAsDataURL(file);
+      } else {
+        $('#preview').attr('src', '#').hide();
+      }
+    });
+
+    
+$('#upload-form').on('submit', function(e) {
+  e.preventDefault();
+  const color = $('input[name="color"]:checked').val();
+  if (!color) {
+    alert('Please select a color');
+    return;
+  }
+  const file = $('#photo')[0].files[0];
+  if (!file) {
+    alert('Please select a file');
+    return;
+  }
+  alert(`File uploaded successfully with color ${color}`);
+});
+
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
+
+searchButton.addEventListener('click', () => {
+  const searchTerm = searchInput.value.trim().toLowerCase();
+
+  switch (searchTerm) {
+    case 'red':
+    case 'RED':
+      window.location.href = 'red.html';
+      break;
+    case 'orange':
+    case 'ORANGE':
+      window.location.href = 'orange.html';
+      break;
+    case 'yellow':
+    case 'YELLOW':
+      window.location.href = 'yellow.html';
+      break;
+    case 'green':
+    case 'GREEN':
+      window.location.href = 'green.html';
+      break;
+    case 'blue':
+    case 'BLUE':
+      window.location.href = 'blue.html';
+      break;
+    case 'purple':
+    case 'PURPLE':
+      window.location.href = 'purple.html';
+      break;
+    case 'pink':
+    case 'PINK':
+      window.location.href = 'pink.html';
+      break;
+    default:
+      alert('Invalid search term');
+      break;
+  }
+});
+  </script>
+</body>
+</html>
