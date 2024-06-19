@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      .sidebar {
+        position: fixed;
+        left: 0;
+        top: 60px;
+        bottom: 0;
+        width: 100px; 
+        background-color: #343a40; 
+        padding: 10px; 
+      }
+      .sidebar .navbar-nav .nav-link {
+        padding: 0.25rem;
+        color: #fff; 
+      }
+    
+      .nav-link.red:hover, .nav-link.red:focus { background-color: red; }
+      .nav-link.orange:hover, .nav-link.orange:focus { background-color: orange; }
+      .nav-link.yellow:hover, .nav-link.yellow:focus { background-color: rgb(236, 236, 0); color: #343a40; }
+      .nav-link.green:hover, .nav-link.green:focus { background-color: green; }
+      .nav-link.blue:hover, .nav-link.blue:focus { background-color: blue; }
+      .nav-link.purple:hover, .nav-link.purple:focus { background-color: purple; }
+      .nav-link.pink:hover, .nav-link.pink:focus { background-color: rgb(254, 103, 196); }
+
+      body {
+       background-image: url('final_main_1.jpg');
+       background-size: cover;
+       background-position: center;
+       background-attachment: fixed;
+      }
+
+      .welcome-text {
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       color: #fff;
+       text-align: center;
+      }
+
+      .popup, .signup-popup {
+       display: none;
+       position: fixed;
+       left: 50%;
+       top: 50%;
+       transform: translate(-50%, -50%);
+       background-color: white;
+       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+       padding: 20px;
+       z-index: 1000;
+      }
+
+      .popup-content {
+       position: relative;
+      }
+
+      .close {
+       position: absolute;
+       top: 10px;
+       right: 10px;
+       cursor: pointer;
+       font-size: 20px;
+      }
+      
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      form label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      form input {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+      }
+
+      form button {
+        padding: 10px 15px;
+        background-color: #333;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      form button:hover {
+        background-color: #555;
+      }
+
+      .error-message {
+        color: red;
+        margin-top: 10px;
+      }
+
+      .login-popup {
+      display: none;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      z-index: 1000;
+    }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="new.html">HOME</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="links/account.html">ACCOUNT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="links/about.html">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="links/upload.html">UPLOAD</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="links/policy.html">POLICY</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="button" id="searchButton">SEARCH</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+  
+    <div class="sidebar">
+      <nav class="navbar navbar-dark bg-dark flex-column">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="links/red.html">red</a></li>
+          <li class="nav-item"><a class="nav-link" href="links/orange.html">orange</a></li>
+          <li class="nav-item"><a class="nav-link" href="links/yellow.html">yellow</a></li>
+          <li class="nav-item"><a class="nav-link" href="links/green.html">green</a></li>
+          <li class="nav-item"><a class="nav-link" href="links/blue.html">blue</a></li>
+          <li class="nav-item"><a class="nav-link" href="links/purple.html">purple</a></li>
+          <li class="nav-item"><a class="nav-link" href="links/pink.html">pink</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <nav class="navbar fixed-bottom navbar-dark bg-dark">
+      <div class="container-fluid">
+        <span class="navbar-text">Director:Ga-In Yoo     Student ID:2314810</span>
+        <a class="navbar-text" href="https://www.sookmyung.ac.kr/kr/index.do">Institution: Sookmyung Women`s University</a>
+      </div>
+    </nav>
+
+    <div class="welcome-text">
+      <h1>Welcome</h1>
+      <p>coloring voyage</p>
+      <nav>
+
+      </nav>
+    </div>
+
+    <div class="popup" id="popup">
+      <div class="popup-content">
+          <span class="close" id="close">&times;</span>
+          <br><br><p>Are you new here? <br> Click here to sign up</p>
+          <button id="signup">Sign up</button>
+      </div>
+    </div>
+    <div class="signup-popup" id="signup-popup">
+      <div class="popup-content">
+          <span class="close" id="signup-close">&times;</span>
+          <p>Signup Form</p>
+          <form id="signupForm">
+            <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit">Sign Up</button>
+            <p id="errorMessage" class="error-message"></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="login-popup" id="login-popup">
+      <div class="popup-content">
+        <span class="close" id="login-close">&times;</span>
+        <p>Login Form</p>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="login-email">Email address:</label>
+            <input type="email" id="login-email" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" required>
+          </div>
+          <button type="submit">Log In</button>
+          <p id="login-error-message" class="error-message"></p>
+        </form>
+      </div>
+    </div>    
+   
+    <script>
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('mouseover', () => {
+          link.classList.add(link.textContent.trim().toLowerCase());
+        });
+        link.addEventListener('mouseout', () => {
+          link.classList.remove(link.textContent.trim().toLowerCase());
+        });
+      });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const popup = document.getElementById('popup');
+  const close = document.getElementById('close');
+  const signupButton = document.getElementById('signup');
+  const signupPopup = document.getElementById('signup-popup');
+  const signupClose = document.getElementById('signup-close');
+  const loginPopup = document.getElementById('login-popup');
+  const loginClose = document.getElementById('login-close');
+  const loginForm = document.getElementById('loginForm');
+  const loginErrorMessage = document.getElementById('login-error-message');
+  const logoutButton = document.createElement('a');
+
+  
+  popup.style.display = 'block';
+
+  
+  close.addEventListener('click', function() {
+    popup.style.display = 'none';
+  });
+
+  
+  signupButton.addEventListener('click', function() {
+    popup.style.display = 'none';
+    signupPopup.style.display = 'block';
+  });
+
+  
+  signupClose.addEventListener('click', function() {
+    signupPopup.style.display = 'none';
+  });
+
+  
+  const loginButton = document.createElement('a');
+  loginButton.href = '#';
+  loginButton.textContent = 'Log In';
+  loginButton.classList.add('btn', 'btn-light');
+  loginButton.addEventListener('click', function() {
+    loginPopup.style.display = 'block';
+  });
+  document.querySelector('.welcome-text nav').appendChild(loginButton);
+
+  
+  loginClose.addEventListener('click', function() {
+    loginPopup.style.display = 'none';
+  });
+
+  
+  logoutButton.href = '#';
+  logoutButton.textContent = 'Log Out';
+  logoutButton.classList.add('btn', 'btn-light');
+  logoutButton.style.display = 'none';
+  logoutButton.addEventListener('click', function() {
+    logoutUser();
+  });
+  document.querySelector('.welcome-text nav').appendChild(logoutButton);
+
+  
+  loginForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+
+    const registeredEmails = JSON.parse(localStorage.getItem('registeredEmails')) || [];
+    const user = registeredEmails.find(user => user.email === email && user.password === password);
+
+    if (user) {
+      
+      localStorage.setItem('loggedInUser', JSON.stringify(user));
+      loginPopup.style.display = 'none';
+      loginErrorMessage.textContent = '';
+      updateUIOnLogin(user);
+    } else {
+      
+      loginErrorMessage.textContent = 'Invalid email or password';
+    }
+  });
+
+  
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+  if (loggedInUser) {
+    updateUIOnLogin(loggedInUser);
+  }
+
+  function updateUIOnLogin(user) {
+    loginButton.style.display = 'none';
+    logoutButton.style.display = 'inline-block';
+    document.querySelector('.welcome-text h1').textContent = `Welcome, ${user.email.split('@')[0]}!`;
+    document.querySelector('.welcome-text p').textContent = 'You are logged in.';
+  }
+
+  function logoutUser() {
+    localStorage.removeItem('loggedInUser');
+    loginButton.style.display = 'inline-block';
+    logoutButton.style.display = 'none';
+    document.querySelector('.welcome-text h1').textContent = 'Welcome';
+    document.querySelector('.welcome-text p').textContent = 'coloring voyage';
+  }
+});
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const signupForm = document.getElementById('signupForm');
+      const errorMessage = document.getElementById('errorMessage');
+
+      signupForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        const registeredEmails = JSON.parse(localStorage.getItem('registeredEmails')) || [];
+
+        if (registeredEmails.some(user => user.email === email)) {
+          errorMessage.textContent = '이미 회원가입이 완료된 이메일 주소입니다';
+        } else {
+          const newUser = { email, password };
+          registeredEmails.push(newUser);
+          localStorage.setItem('registeredEmails', JSON.stringify(registeredEmails));
+          alert('Sign up successful!');
+          window.location.href = 'account.html';
+        }
+      });
+    });
+
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
+
+searchButton.addEventListener('click', () => {
+  const searchTerm = searchInput.value.trim().toLowerCase();
+
+  switch (searchTerm) {
+    case 'red':
+    case 'RED':
+      window.location.href = 'links/red.html';
+      break;
+    case 'orange':
+    case 'ORANGE':
+      window.location.href = 'links/orange.html';
+      break;
+    case 'yellow':
+    case 'YELLOW':
+      window.location.href = 'links/yellow.html';
+      break;
+    case 'green':
+    case 'GREEN':
+      window.location.href = 'links/green.html';
+      break;
+    case 'blue':
+    case 'BLUE':
+      window.location.href = 'links/blue.html';
+      break;
+    case 'purple':
+    case 'PURPLE':
+      window.location.href = 'links/purple.html';
+      break;
+    case 'pink':
+    case 'PINK':
+      window.location.href = 'links/pink.html';
+      break;
+    default:
+      alert('Invalid search term');
+      break;
+  }
+});
+
+  </script>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
